@@ -1,34 +1,30 @@
-# FRC 2024 CRESCENDO — Robot Study Dashboard
+# FRC 2024 CRESCENDO -- Robot Study Dashboard
 
-An interactive catalog of **96 teams** that publicly released downloadable CAD for the 2024
-CRESCENDO season, with **11 curated ★ study picks** carrying full subsystem deep-dives mined
-from each team's Chief Delphi release/reveal thread.
+A searchable catalog of FRC 2024 CRESCENDO robots with public design material, plus
+the top-30 robots by Local EPA.
 
-## Files
+- Live site: https://dmeglan.github.io/frc2024-crescendo-dashboard/
+- `index.html`: the dashboard (desktop table and phone cards, light and dark themes).
+- `deep-dive.html` / `deep-dive.pdf`: the deep dive with subsystem profiles.
 
-| File | What it is |
+| Item | Count |
 |---|---|
-| `FRC2024_Crescendo_Robot_Study_Dashboard.html` | The interactive dashboard (desktop table + mobile cards, search / archetype / CAD / confidence filters). |
-| `FRC2024_Crescendo_TopTeams_DeepDive.html` / `.pdf` | Printable deep-dive of the 11 study picks (subsystem cards + lessons). |
-| `index.html` / `deep-dive.html` / `deep-dive.pdf` | The same outputs prepped for GitHub Pages, with the dated "Updated…" banner + "What's changed" panel. |
-| `pipeline/` | The build pipeline: `config.py`, `codex_data.json` (96 teams), `deepdive_extra.py` (deep profiles + picks), build scripts, and the discovery inputs (`_cad_links.txt`, `_names.txt`). |
+| Robots | 150 |
+| Downloadable CAD | 133 |
+| Technical binder or code only | 3 |
+| No public design material (top 30 only) | 14 |
+| Subsystem profiles | 57 |
+| Study picks | 41 |
 
-## Notes
+## Sources
+- Spectrum 3847 CAD Collection, Chief Delphi release, reveal and build threads, team CAD, binder and code releases.
+- The Blue Alliance: regions, official-event win-loss-tie records, awards.
+- EPA is Local EPA (approx). The Statbotics data API is offline, so EPA was computed from The Blue
+  Alliance match data with the open-source Statbotics model (github.com/avgupta456/statbotics).
 
-- **EPA / rank are pending a Statbotics API outage** (HTTP 500 at build time, 2026‑06‑16) and
-  will be backfilled when the API recovers — the table is sorted by team number until then.
-- Every team here released **downloadable CAD**, so all are CAD = Yes / High confidence.
-- Discovery: Spectrum 3847 CAD Collection (2024). Mechanism detail: Chief Delphi.
-- Built from the `frc-robot-study-dashboard` skill, mirroring the 2025 REEFSCAPE dashboard.
+## Accuracy
+Each entry states only what the team's public material says. "Unconfirmed" means the public
+material does not state the detail. To correct an entry, post in the Chief Delphi thread for
+these dashboards. A correction from a team member is applied as written.
 
-## Rebuild
-
-```
-cd pipeline
-python3 build_dashboard.py
-python3 build_deepdive_html.py
-python3 build_deepdive_pdf.py
-python3 apply_changelog.py      # regenerates ../index.html + banner
-```
-
-See `PUBLISH_SETUP.md` for the one-time GitHub Pages setup.
+Last full research pass: 2026-10-17.
